@@ -1,23 +1,17 @@
-package test;
+package Brick;
+
+import Brick.Brick;
 
 import java.awt.*;
 import java.awt.Point;
-import java.awt.geom.Point2D;
 
 
-/**
- * Created by filippo on 04/09/16.
- *
- */
 public class ClayBrick extends Brick {
 
     private static final String NAME = "Clay Brick";
-    private static final Color DEF_INNER = new Color(178, 34, 34).darker();
+    private static final Color DEF_INNER = new Color(112, 17, 17).darker();
     private static final Color DEF_BORDER = Color.GRAY;
     private static final int CLAY_STRENGTH = 1;
-
-
-
 
 
 

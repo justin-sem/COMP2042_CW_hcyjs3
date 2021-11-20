@@ -1,21 +1,9 @@
-/*
- *  Brick Destroy - A simple Arcade video game
- *   Copyright (C) 2017  Filippo Ranza
- *
- *  This program is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-package test;
+package Main;
+
+import Ball.*;          // import package Ball
+import Brick.*;         // import package Brick
+
+//import Ball.Ball;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
@@ -34,7 +22,7 @@ public class Wall {
     private Rectangle area;
 
     Brick[] bricks;
-    Ball ball;
+    public Ball ball;
     Player player;
 
     private Brick[][] levels;
@@ -59,11 +47,12 @@ public class Wall {
 
         makeBall(ballPos);
         int speedX,speedY;
+
         do{
             speedX = rnd.nextInt(5) - 2;
         }while(speedX == 0);
         do{
-            speedY = -rnd.nextInt(3);
+            speedY = -rnd.nextInt(4);               // for Y-axis -ve will go up
         }while(speedY == 0);
 
         ball.setSpeed(speedX,speedY);

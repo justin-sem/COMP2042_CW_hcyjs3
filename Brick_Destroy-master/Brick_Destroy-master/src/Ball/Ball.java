@@ -1,7 +1,7 @@
-package test;
+package Ball;
 
 import java.awt.*;
-import java.awt.geom.Point2D;
+import java.awt.geom.Point2D;           // defines a point representing a location in (x,y) coordinate space
 import java.awt.geom.RectangularShape;
 
 /**
@@ -9,19 +9,15 @@ import java.awt.geom.RectangularShape;
  *
  */
 abstract public class Ball {
+    public Point2D up;
+    public Point2D down;
+    public Point2D left;
+    public Point2D right;
 
     private Shape ballFace;
-
     private Point2D center;
-
-    Point2D up;
-    Point2D down;
-    Point2D left;
-    Point2D right;
-
     private Color border;
     private Color inner;
-
     private int speedX;
     private int speedY;
 
@@ -35,9 +31,8 @@ abstract public class Ball {
 
         up.setLocation(center.getX(),center.getY()-(radiusB / 2));
         down.setLocation(center.getX(),center.getY()+(radiusB / 2));
-
         left.setLocation(center.getX()-(radiusA /2),center.getY());
-        right.setLocation(center.getX()+(radiusA /2),center.getY());
+        right.setLocation(center.getX()+(radiusA /2),center.getY());                // ball movement (x,y)
 
 
         ballFace = makeBall(center,radiusA,radiusB);
