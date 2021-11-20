@@ -4,10 +4,7 @@ import java.awt.*;
 import java.awt.geom.Point2D;           // defines a point representing a location in (x,y) coordinate space
 import java.awt.geom.RectangularShape;
 
-/**
- * Created by filippo on 04/09/16.
- *
- */
+
 abstract public class Ball {
     public Point2D up;
     public Point2D down;
