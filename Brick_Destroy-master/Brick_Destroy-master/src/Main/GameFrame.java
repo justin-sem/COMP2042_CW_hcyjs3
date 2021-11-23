@@ -24,7 +24,7 @@ public class GameFrame extends JFrame implements WindowFocusListener {
 
         gameBoard = new GameBoard(this);
 
-        homeMenu = new HomeMenu(this,new Dimension(450,300));
+        homeMenu = new HomeMenu(this,new Dimension(650,500));
 
         this.add(homeMenu,BorderLayout.CENTER);
 
@@ -54,8 +54,8 @@ public class GameFrame extends JFrame implements WindowFocusListener {
 
     private void autoLocate(){
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
-        int x = (size.width - this.getWidth()) / 2;
-        int y = (size.height - this.getHeight()) / 2;
+        int x = (size.width - this.getWidth())/2 ;
+        int y = (size.height - this.getHeight())/2 ;
         this.setLocation(x,y);
     }
 

@@ -23,7 +23,7 @@ public class Wall {
 
     Brick[] bricks;
     public Ball ball;
-    Player player;
+    Paddle player;
 
     private Brick[][] levels;
     private int level;
@@ -57,7 +57,7 @@ public class Wall {
 
         ball.setSpeed(speedX,speedY);
 
-        player = new Player((Point) ballPos.clone(),150,10, drawArea);
+        player = new Paddle((Point) ballPos.clone(),150,10, drawArea);
 
         area = drawArea;
 

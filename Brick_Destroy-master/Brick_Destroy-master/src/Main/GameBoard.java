@@ -13,18 +13,18 @@ import java.awt.font.FontRenderContext;
 
 public class GameBoard extends JComponent implements KeyListener,MouseListener,MouseMotionListener {
 
-    private static final String CONTINUE = "Continue";
-    private static final String RESTART = "Restart";
-    private static final String EXIT = "Exit";
-    private static final String PAUSE = "Pause Menu";
+    private static final String CONTINUE = "CONTINUE";
+    private static final String RESTART = "RESTART";
+    private static final String EXIT = "EXIT";
+    private static final String PAUSE = "PAUSE MENU";
     private static final int TEXT_SIZE = 30;
-    private static final Color MENU_COLOR = new Color(0,255,0);
+    private static final Color MENU_COLOR = new Color(166, 141, 16);
 
 
     private static final int DEF_WIDTH = 600;
     private static final int DEF_HEIGHT = 450;
 
-    private static final Color BG_COLOR = Color.WHITE;
+    private static final Color BG_COLOR = new Color(15, 20, 66);
 
     private Timer gameTimer;
 
@@ -52,11 +52,12 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
 
 
-        menuFont = new Font("Monospaced",Font.PLAIN,TEXT_SIZE);
+        menuFont = new Font("Dialog",Font.BOLD,TEXT_SIZE);
 
 
         this.initialize();
-        message = "";
+
+        message = "PRESS SPACE TO START";
         wall = new Wall(new Rectangle(0,0,DEF_WIDTH,DEF_HEIGHT),30,3,6/2,new Point(300,430));
 
         debugConsole = new DebugConsole(owner,wall,this);
@@ -66,11 +67,11 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         gameTimer = new Timer(10,e ->{
             wall.move();
             wall.findImpacts();
-            message = String.format("Bricks: %d Balls %d",wall.getBrickCount(),wall.getBallCount());
+            message = String.format("        Bricks: %d, Balls %d",wall.getBrickCount(),wall.getBallCount());
             if(wall.isBallLost()){
                 if(wall.ballEnd()){
                     wall.wallReset();
-                    message = "Game over";
+                    message = "GAME OVER";
                 }
                 wall.ballReset();
                 gameTimer.stop();
@@ -112,8 +113,8 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
         clear(g2d);
 
-        g2d.setColor(Color.BLUE);
-        g2d.drawString(message,250,225);
+        g2d.setColor(Color.GREEN);
+        g2d.drawString(message,230,225);
 
         drawBall(wall.ball,g2d);
 
@@ -163,14 +164,14 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         g2d.setColor(tmp);
     }
 
-    private void drawPlayer(Player p,Graphics2D g2d){
+    private void drawPlayer(Paddle p, Graphics2D g2d){
         Color tmp = g2d.getColor();
 
-        Shape s = p.getPlayerFace();
-        g2d.setColor(Player.INNER_COLOR);
+        Shape s = p.getPaddleFace();
+        g2d.setColor(Paddle.INNER_COLOR);
         g2d.fill(s);
 
-        g2d.setColor(Player.BORDER_COLOR);
+        g2d.setColor(Paddle.BORDER_COLOR);
         g2d.draw(s);
 
         g2d.setColor(tmp);
@@ -258,9 +259,11 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
     public void keyPressed(KeyEvent keyEvent) {
         switch(keyEvent.getKeyCode()){
             case KeyEvent.VK_A:
+            case KeyEvent.VK_LEFT:
                 wall.player.moveLeft();
                 break;
             case KeyEvent.VK_D:
+            case KeyEvent.VK_RIGHT:
                 wall.player.movRight();
                 break;
             case KeyEvent.VK_ESCAPE:
@@ -270,10 +273,14 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
                 break;
             case KeyEvent.VK_SPACE:
                 if(!showPauseMenu)
-                    if(gameTimer.isRunning())
+                    if(gameTimer.isRunning()) {
                         gameTimer.stop();
+                        message = String.format("         GAME PAUSED");
+                        repaint();
+                    }
                     else
                         gameTimer.start();
+
                 break;
             case KeyEvent.VK_F1:
                 if(keyEvent.isAltDown() && keyEvent.isShiftDown())
@@ -351,7 +358,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
     public void onLostFocus(){
         gameTimer.stop();
-        message = "Focus Lost";
+        message = "         GAME PAUSED";
         repaint();
     }
 

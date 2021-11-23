@@ -5,25 +5,25 @@ import Ball.Ball;
 import java.awt.*;
 
 
-public class Player {
+public class Paddle {
 
 
-    public static final Color BORDER_COLOR = Color.GREEN.darker().darker();
-    public static final Color INNER_COLOR = Color.GREEN;
+    public static final Color BORDER_COLOR = new Color(98, 82, 4);
+    public static final Color INNER_COLOR = new Color(166, 141, 16);
 
     private static final int DEF_MOVE_AMOUNT = 5;
 
-    private Rectangle playerFace;
+    private Rectangle paddleFace;
     private Point ballPoint;
     private int moveAmount;
     private int min;
     private int max;
 
 
-    public Player(Point ballPoint,int width,int height,Rectangle container) {
+    public Paddle(Point ballPoint, int width, int height, Rectangle container) {
         this.ballPoint = ballPoint;
         moveAmount = 0;
-        playerFace = makeRectangle(width, height);
+        paddleFace = makeRectangle(width, height);
         min = container.x + (width / 2);
         max = min + container.width - width;
 
@@ -35,7 +35,7 @@ public class Player {
     }
 
     public boolean impact(Ball b){
-        return playerFace.contains(b.getPosition()) && playerFace.contains(b.down) ;
+        return paddleFace.contains(b.getPosition()) && paddleFace.contains(b.down) ;
     }
 
     public void move(){
@@ -43,7 +43,7 @@ public class Player {
         if(x < min || x > max)
             return;
         ballPoint.setLocation(x,ballPoint.getY());
-        playerFace.setLocation(ballPoint.x - (int)playerFace.getWidth()/2,ballPoint.y);
+        paddleFace.setLocation(ballPoint.x - (int) paddleFace.getWidth()/2,ballPoint.y);
     }
 
     public void moveLeft(){
@@ -58,12 +58,12 @@ public class Player {
         moveAmount = 0;
     }
 
-    public Shape getPlayerFace(){
-        return  playerFace;
+    public Shape getPaddleFace(){
+        return paddleFace;
     }
 
     public void moveTo(Point p){
         ballPoint.setLocation(p);
-        playerFace.setLocation(ballPoint.x - (int)playerFace.getWidth()/2,ballPoint.y);
+        paddleFace.setLocation(ballPoint.x - (int) paddleFace.getWidth()/2,ballPoint.y);
     }
 }
