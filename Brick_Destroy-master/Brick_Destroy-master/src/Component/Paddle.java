@@ -1,4 +1,4 @@
-package Main;
+package Component;
 
 import Ball.Ball;
 

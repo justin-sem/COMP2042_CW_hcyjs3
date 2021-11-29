@@ -2,8 +2,8 @@ package Console;
 
 //import Ball.Ball;
 import Ball.*;
-import Main.GameBoard;
-import Main.Wall;
+import GameMain.GameBoard;
+import Component.Wall;
 
 import javax.swing.*;
 import java.awt.*;

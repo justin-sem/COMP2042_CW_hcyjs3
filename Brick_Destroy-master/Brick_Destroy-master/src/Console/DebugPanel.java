@@ -1,6 +1,6 @@
 package Console;
 
-import Main.Wall;
+import Component.Wall;
 
 import javax.swing.*;
 import javax.swing.event.ChangeListener;

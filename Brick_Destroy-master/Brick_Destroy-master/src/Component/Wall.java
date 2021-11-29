@@ -1,4 +1,4 @@
-package Main;
+package Component;
 
 import Ball.*;          // import package Ball
 import Brick.*;         // import package Brick
@@ -21,9 +21,9 @@ public class Wall {
     private Random rnd;
     private Rectangle area;
 
-    Brick[] bricks;
+    public Brick[] bricks;
     public Ball ball;
-    Paddle player;
+    public Paddle paddle;
 
     private Brick[][] levels;
     private int level;
@@ -57,7 +57,7 @@ public class Wall {
 
         ball.setSpeed(speedX,speedY);
 
-        player = new Paddle((Point) ballPos.clone(),150,10, drawArea);
+        paddle = new Paddle((Point) ballPos.clone(),150,10, drawArea);
 
         area = drawArea;
 
@@ -163,12 +163,12 @@ public class Wall {
     }
 
     public void move(){
-        player.move();
+        paddle.move();
         ball.move();
     }
 
     public void findImpacts(){
-        if(player.impact(ball)){
+        if(paddle.impact(ball)){
             ball.reverseY();
         }
         else if(impactWall()){
@@ -230,7 +230,7 @@ public class Wall {
     }
 
     public void ballReset(){
-        player.moveTo(startPoint);
+        paddle.moveTo(startPoint);
         ball.moveTo(startPoint);
         int speedX,speedY;
         do{

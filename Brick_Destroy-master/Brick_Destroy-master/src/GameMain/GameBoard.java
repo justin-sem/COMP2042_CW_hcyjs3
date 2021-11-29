@@ -1,8 +1,10 @@
-package Main;
+package GameMain;
 
 import Ball.Ball;
 import Brick.Brick;
 import Console.DebugConsole;
+import Component.Paddle;
+import Component.Wall;
 
 import javax.swing.*;
 import java.awt.*;
@@ -52,7 +54,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
 
 
-        menuFont = new Font("Dialog",Font.BOLD,TEXT_SIZE);
+        menuFont = new Font("Times New Roman",Font.BOLD,TEXT_SIZE);
 
 
         this.initialize();
@@ -78,7 +80,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
             }
             else if(wall.isDone()){
                 if(wall.hasLevel()){
-                    message = "Go to Next Level";
+                    message = "GO TO NEXT LEVEL";
                     gameTimer.stop();
                     wall.ballReset();
                     wall.wallReset();
@@ -122,7 +124,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
             if(!b.isBroken())
                 drawBrick(b,g2d);
 
-        drawPlayer(wall.player,g2d);
+        drawPlayer(wall.paddle,g2d);
 
         if(showPauseMenu)
             drawMenu(g2d);
@@ -260,11 +262,11 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         switch(keyEvent.getKeyCode()){
             case KeyEvent.VK_A:
             case KeyEvent.VK_LEFT:
-                wall.player.moveLeft();
+                wall.paddle.moveLeft();
                 break;
             case KeyEvent.VK_D:
             case KeyEvent.VK_RIGHT:
-                wall.player.movRight();
+                wall.paddle.movRight();
                 break;
             case KeyEvent.VK_ESCAPE:
                 showPauseMenu = !showPauseMenu;
@@ -286,13 +288,13 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
                 if(keyEvent.isAltDown() && keyEvent.isShiftDown())
                     debugConsole.setVisible(true);
             default:
-                wall.player.stop();
+                wall.paddle.stop();
         }
     }
 
     @Override
     public void keyReleased(KeyEvent keyEvent) {
-        wall.player.stop();
+        wall.paddle.stop();
     }
 
     @Override
