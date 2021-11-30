@@ -22,8 +22,8 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
     private static final String GUIDE_TEXT = "GUIDE";
 
     private static final Color BG_COLOR = new Color(15, 20, 66);    //background color
-    private static final Color BORDER_COLOR = new Color(44, 5, 124); //dark purple
-    private static final Color DASH_BORDER_COLOR = new  Color(150, 148, 218);//light purple
+    private static final Color BORDER_COLOR = new Color(3, 2, 3); //black
+    private static final Color DASH_BORDER_COLOR = new  Color(166, 141, 16);//gold
     private static final Color TEXT_COLOR = new Color(166, 141, 16);//gold
     private static final Color CLICKED_BUTTON_COLOR = BG_COLOR.brighter();
     private static final Color CLICKED_TEXT = Color.WHITE;
@@ -50,6 +50,7 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
     private boolean exitClicked;
     private boolean guideClicked;
 
+    Image background = Toolkit.getDefaultToolkit().getImage("universe.jpg");
 
     public HomeMenu(GameFrame owner,Dimension area){
 
@@ -114,13 +115,16 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
         g2d.translate(-x,-y);
         g2d.setFont(prevFont);
         g2d.setColor(prevColor);
+
     }
 
     private void drawContainer(Graphics2D g2d){
         Color prev = g2d.getColor();
 
-        g2d.setColor(BG_COLOR);
-        g2d.fill(menuFace);
+        g2d.drawImage(background,0,0,null);         // use image as background instead of color
+        //g2d.setColor(BG_COLOR);
+        //g2d.fill(menuFace);
+
 
         Stroke tmp = g2d.getStroke();
 

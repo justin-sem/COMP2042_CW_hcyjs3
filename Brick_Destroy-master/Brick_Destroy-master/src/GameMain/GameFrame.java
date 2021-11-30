@@ -34,6 +34,8 @@ public class GameFrame extends JFrame implements WindowFocusListener {
         this.setUndecorated(true);
         ImageIcon galaxyLogo = new ImageIcon("galaxy.jpg");     // change icon
         this.setIconImage(galaxyLogo.getImage());
+        ImageIcon universeBG = new ImageIcon("universe.jpg");     // change BG
+        this.setIconImage(universeBG.getImage());
 
     }
 
@@ -72,7 +74,7 @@ public class GameFrame extends JFrame implements WindowFocusListener {
         this.remove(gameGuide);
         this.add(homeMenu,BorderLayout.CENTER);
         this.dispose();
-        this.setUndecorated(false);
+        this.setUndecorated(true);
         this.setResizable(false);
         initialize();
     }
