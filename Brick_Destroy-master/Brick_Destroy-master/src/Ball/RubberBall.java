@@ -8,8 +8,8 @@ public class RubberBall extends Ball {
 
 
     private static final int DEF_RADIUS = 10;
-    private static final Color DEF_INNER_COLOR = new Color(174, 173, 218);
-    private static final Color DEF_BORDER_COLOR = DEF_INNER_COLOR.darker();
+    private static final Color DEF_INNER_COLOR = new Color(246, 248, 248).brighter();
+    private static final Color DEF_BORDER_COLOR = new Color(0,0,0);
 
 
     public RubberBall(Point2D center){
