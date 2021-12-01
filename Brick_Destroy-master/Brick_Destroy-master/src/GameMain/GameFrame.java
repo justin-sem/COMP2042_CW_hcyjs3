@@ -35,7 +35,6 @@ public class GameFrame extends JFrame implements WindowFocusListener {
         ImageIcon galaxyLogo = new ImageIcon("galaxy.jpg");     // change icon
         this.setIconImage(galaxyLogo.getImage());
         ImageIcon universeBG = new ImageIcon("universe.jpg");     // change BG
-        this.setIconImage(universeBG.getImage());
 
     }
 

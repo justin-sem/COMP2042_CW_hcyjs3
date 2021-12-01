@@ -1,25 +1,23 @@
 package Brick;
 
-import Brick.Brick;
-
 import java.awt.*;
 import java.awt.geom.Point2D;
 import java.util.Random;
 
 
-public class SteelBrick extends Brick {
+public class GoldBrick extends Brick {
 
-    private static final String NAME = "Steel Brick";
-    private static final Color DEF_INNER = new Color(203, 203, 201);
-    private static final Color DEF_BORDER = Color.BLACK;
-    private static final int STEEL_STRENGTH = 1;
-    private static final double STEEL_PROBABILITY = 0.4;
+    private static final String NAME = "Gold Brick";
+    private static final Color DEF_INNER = new Color(199, 167, 7);
+    private static final Color DEF_BORDER = Color.yellow;
+    private static final int GOLD_STRENGTH = 1;
+    private static final double GOLD_PROBABILITY = 0.7;        // probability for gold brick to break
 
     private Random rnd;
     private Shape brickFace;
 
-    public SteelBrick(Point point, Dimension size){
-        super(NAME,point,size,DEF_BORDER,DEF_INNER,STEEL_STRENGTH);
+    public GoldBrick(Point point, Dimension size){
+        super(NAME,point,size,DEF_BORDER,DEF_INNER, GOLD_STRENGTH);
         rnd = new Random();
         brickFace = super.brickFace;
     }
@@ -43,7 +41,7 @@ public class SteelBrick extends Brick {
     }
 
     public void impact(){
-        if(rnd.nextDouble() < STEEL_PROBABILITY){
+        if(rnd.nextDouble() < GOLD_PROBABILITY){
             super.impact();
         }
     }

@@ -9,7 +9,7 @@ public class Paddle {
 
 
     public static final Color BORDER_COLOR = new Color(98, 82, 4);
-    public static final Color INNER_COLOR = new Color(166, 141, 16);
+    public static final Color INNER_COLOR = new Color(166, 141, 16).brighter();
 
     private static final int DEF_MOVE_AMOUNT = 5;
 

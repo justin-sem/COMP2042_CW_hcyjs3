@@ -73,7 +73,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
             if(wall.isBallLost()){
                 if(wall.ballEnd()){
                     wall.wallReset();
-                    message = "GAME OVER";
+                    message = "          GAME OVER";
                 }
                 wall.ballReset();
                 gameTimer.stop();

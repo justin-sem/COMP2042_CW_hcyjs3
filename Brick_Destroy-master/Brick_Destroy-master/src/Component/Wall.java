@@ -12,11 +12,12 @@ import java.util.Random;
 
 public class Wall {
 
-    private static final int LEVELS_COUNT = 4;
+    private static final int LEVELS_COUNT = 5;
 
-    private static final int CLAY = 1;
-    private static final int STEEL = 2;
-    private static final int CEMENT = 3;
+    private static final int LEAD = 1;
+    private static final int GOLD = 2;
+    private static final int COPPER = 3;
+    private static final int DIAMOND = 4;
 
     private Random rnd;
     private Rectangle area;
@@ -49,10 +50,10 @@ public class Wall {
         int speedX,speedY;
 
         do{
-            speedX = rnd.nextInt(5) - 2;
+            speedX = rnd.nextInt(5) -4;
         }while(speedX == 0);
         do{
-            speedY = -rnd.nextInt(4);               // for Y-axis -ve will go up
+            speedY = -rnd.nextInt(4) -3 ;               // for Y-axis -ve will go up
         }while(speedY == 0);
 
         ball.setSpeed(speedX,speedY);
@@ -98,7 +99,7 @@ public class Wall {
         for(double y = brickHgt;i < tmp.length;i++, y += 2*brickHgt){
             double x = (brickOnLine * brickLen) - (brickLen / 2);
             p.setLocation(x,y);
-            tmp[i] = new ClayBrick(p,brickSize);
+            tmp[i] = new LeadBrick(p,brickSize);
         }
         return tmp;
 
@@ -155,10 +156,11 @@ public class Wall {
 
     private Brick[][] makeLevels(Rectangle drawArea,int brickCount,int lineCount,double brickDimensionRatio){
         Brick[][] tmp = new Brick[LEVELS_COUNT][];
-        tmp[0] = makeSingleTypeLevel(drawArea,brickCount,lineCount,brickDimensionRatio,CLAY);
-        tmp[1] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,CLAY,CEMENT);
-        tmp[2] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,CLAY,STEEL);
-        tmp[3] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,STEEL,CEMENT);
+        tmp[0] = makeSingleTypeLevel(drawArea,brickCount,lineCount,brickDimensionRatio,LEAD);
+        tmp[1] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio, LEAD,GOLD);
+        tmp[2] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio, LEAD, COPPER);
+        tmp[3] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio, GOLD, COPPER);
+        tmp[4] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,COPPER,DIAMOND);
         return tmp;
     }
 
@@ -234,10 +236,10 @@ public class Wall {
         ball.moveTo(startPoint);
         int speedX,speedY;
         do{
-            speedX = rnd.nextInt(5) - 2;
+            speedX = rnd.nextInt(5) - 4;
         }while(speedX == 0);
         do{
-            speedY = -rnd.nextInt(3);
+            speedY = -rnd.nextInt(4) - 3;
         }while(speedY == 0);
 
         ball.setSpeed(speedX,speedY);
@@ -283,17 +285,20 @@ public class Wall {
     private Brick makeBrick(Point point, Dimension size, int type){
         Brick out;
         switch(type){
-            case CLAY:
-                out = new ClayBrick(point,size);
+            case LEAD:
+                out = new LeadBrick(point,size);
                 break;
-            case STEEL:
-                out = new SteelBrick(point,size);
+            case GOLD:
+                out = new GoldBrick(point,size);
                 break;
-            case CEMENT:
-                out = new CementBrick(point, size);
+            case COPPER:
+                out = new CopperBrick(point, size);
+                break;
+            case DIAMOND:
+                out = new DiamondBrick(point,size);
                 break;
             default:
-                throw  new IllegalArgumentException(String.format("Unknown Type:%d\n",type));
+                throw new IllegalArgumentException(String.format("Unknown Type:%d\n",type));
         }
         return  out;
     }
