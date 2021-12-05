@@ -33,6 +33,7 @@ public class Wall {
     private int brickCount;
     private int ballCount;
     private boolean ballLost;
+    public int highScore = 0;
 
     public Wall(Rectangle drawArea, int brickCount, int lineCount, double brickDimensionRatio, Point ballPos){
 
@@ -120,7 +121,7 @@ public class Wall {
         double brickLen = drawArea.getWidth() / brickOnLine;
         double brickHgt = brickLen / brickSizeRatio;
 
-        brickCnt += lineCnt / 2;
+        brickCnt += lineCnt /2;
 
         Brick[] tmp  = new Brick[brickCnt];
 
@@ -178,6 +179,7 @@ public class Wall {
             * because for every brick program checks for horizontal and vertical impacts
             */
             brickCount--;
+            highScore++;                            // after a brick break, score +1
         }
         else if(impactBorder()) {
             ball.reverseX();
@@ -223,6 +225,10 @@ public class Wall {
         return brickCount;
     }
 
+    public int getHighScore(){
+        return highScore;
+    }
+
     public int getBallCount(){
         return ballCount;
     }
@@ -264,6 +270,7 @@ public class Wall {
     public void nextLevel(){
         bricks = levels[level++];
         this.brickCount = bricks.length;
+
     }
 
     public boolean hasLevel(){

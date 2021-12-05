@@ -6,8 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-// implement a button which can go back from guide to home menu ~
-//  28/11/2021
+
 
 public class GameGuide implements ActionListener {
 

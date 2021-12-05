@@ -5,6 +5,7 @@ import Brick.Brick;
 import Console.DebugConsole;
 import Component.Paddle;
 import Component.Wall;
+import Component.WriteToFile;
 
 import javax.swing.*;
 import java.awt.*;
@@ -44,6 +45,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
     private int strLen;
 
     private DebugConsole debugConsole;
+    public static int temp;
 
 
     public GameBoard(JFrame owner){
@@ -69,11 +71,18 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         gameTimer = new Timer(10,e ->{
             wall.move();
             wall.findImpacts();
-            message = String.format("        Bricks: %d, Balls %d",wall.getBrickCount(),wall.getBallCount());
+            message = String.format("        Bricks: %d, Balls %d, " +
+                    "High Score %d",wall.getBrickCount(),wall.getBallCount(),wall.getHighScore());
+            temp = wall.getHighScore();
             if(wall.isBallLost()){
                 if(wall.ballEnd()){
+                    GameFrame enableHighScore = new GameFrame();
+                    WriteToFile writeFile = new WriteToFile();          //when game over record the HS
+                    writeFile.WriteToFile();
                     wall.wallReset();
+                    wall.highScore = 0;                         // if lost the game, the score reset
                     message = "          GAME OVER";
+                    enableHighScore.enableHighScore();
                 }
                 wall.ballReset();
                 gameTimer.stop();
