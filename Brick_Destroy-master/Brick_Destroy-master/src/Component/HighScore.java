@@ -16,7 +16,6 @@ public class HighScore extends JFrame {
     JFrame highScoreFrame = new JFrame();
     JLabel scoreLabel1 = new JLabel();
     JLabel scoreLabel2 = new JLabel();
-    //JLabel scoreLabel3 = new JLabel();
     JTextArea scoreLabel3 = new JTextArea(10, 20);
 
 

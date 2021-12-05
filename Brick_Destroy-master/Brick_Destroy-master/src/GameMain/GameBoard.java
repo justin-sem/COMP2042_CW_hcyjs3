@@ -71,8 +71,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         gameTimer = new Timer(10,e ->{
             wall.move();
             wall.findImpacts();
-            message = String.format("        Bricks: %d, Balls %d, " +
-                    "High Score %d",wall.getBrickCount(),wall.getBallCount(),wall.getHighScore());
+            message = String.format("        Bricks: %d, Balls %d" ,wall.getBrickCount(),wall.getBallCount());
             temp = wall.getHighScore();
             if(wall.isBallLost()){
                 if(wall.ballEnd()){
@@ -90,6 +89,10 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
             else if(wall.isDone()){
                 if(wall.hasLevel()){
                     message = "GO TO NEXT LEVEL";
+                    GameFrame enableHighScore = new GameFrame();
+                    WriteToFile writeFile = new WriteToFile();          //when game end record the HS
+                    writeFile.WriteToFile();
+                    enableHighScore.enableHighScore();
                     gameTimer.stop();
                     wall.ballReset();
                     wall.wallReset();
