@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
+import Component.HighScore;
 
 
 
@@ -16,6 +17,7 @@ public class GameFrame extends JFrame implements WindowFocusListener {
     private GameBoard gameBoard;
     private HomeMenu homeMenu;
     private GameGuide gameGuide;
+    private HighScore highScore;
 
     private boolean gaming;
     
@@ -29,7 +31,6 @@ public class GameFrame extends JFrame implements WindowFocusListener {
 
         gameBoard = new GameBoard(this);
         homeMenu = new HomeMenu(this,new Dimension(650,500));
-        //gameGuide = new GameGuide(this);
         this.add(homeMenu,BorderLayout.CENTER);
         this.setUndecorated(true);
         ImageIcon galaxyLogo = new ImageIcon("galaxy.jpg");     // change icon
@@ -67,7 +68,7 @@ public class GameFrame extends JFrame implements WindowFocusListener {
         this.remove(homeMenu);
         this.add(gameGuide,BorderLayout.CENTER);
         this.setUndecorated(false);
-        //initialize();
+
     }
     public void enableHomeMenu(){                   // used when back button from guide is clicked
         this.remove(gameGuide);
@@ -77,13 +78,22 @@ public class GameFrame extends JFrame implements WindowFocusListener {
         this.setResizable(false);
         initialize();
     }
+    public void enableHighScore(){
+        highScore = new HighScore(this);
+        this.add(highScore,BorderLayout.CENTER);
+        this.setUndecorated(true);
+        this.setResizable(false);
+
+    }
 
     private void remove(GameGuide gameGuide) {
     }
 
     private void add(GameGuide gameGuide, String center) {
     }
+    private void add(HighScore highScore, String center){
 
+    }
 
     private void autoLocate(){
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
