@@ -1,24 +1,22 @@
 package Console;
 
-//import Ball.Ball;
-import Ball.*;
-import GameMain.GameBoard;
-import Component.Wall;
 
+import Ball.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import GameMain.GameBoard;
+import Component.Wall;
 
 public class DebugConsole extends JDialog implements WindowListener{
 
     private static final String TITLE = "Debug Console";
-
-
     private JFrame owner;
     private DebugPanel debugPanel;
     private GameBoard gameBoard;
     private Wall wall;
+    ImageIcon galaxyLogo = new ImageIcon("galaxy.jpg");     // change icon
 
 
     public DebugConsole(JFrame owner,Wall wall,GameBoard gameBoard){
@@ -26,6 +24,7 @@ public class DebugConsole extends JDialog implements WindowListener{
         this.wall = wall;
         this.owner = owner;
         this.gameBoard = gameBoard;
+        this.setIconImage(galaxyLogo.getImage());
         initialize();
 
         debugPanel = new DebugPanel(wall);

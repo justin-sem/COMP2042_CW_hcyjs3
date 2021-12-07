@@ -6,8 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-
-
 public class GameGuide implements ActionListener {
 
     JFrame guideFrame = new JFrame();
@@ -18,7 +16,6 @@ public class GameGuide implements ActionListener {
     JButton backButton = new JButton();
 
     ImageIcon galaxyLogo = new ImageIcon("galaxy.jpg");     // change icon
-
 
     public GameGuide(JFrame owner) {
 
@@ -72,9 +69,6 @@ public class GameGuide implements ActionListener {
         backButton.setFocusable(false);
         backButton.setBounds(10,400,100,40);
         backButton.addActionListener(this);
-
-
-
 
 
     }

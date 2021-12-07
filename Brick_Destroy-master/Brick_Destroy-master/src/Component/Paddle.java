@@ -7,10 +7,8 @@ import java.awt.*;
 
 public class Paddle {
 
-
     public static final Color BORDER_COLOR = new Color(98, 82, 4);
     public static final Color INNER_COLOR = new Color(166, 141, 16).brighter();
-
     private static final int DEF_MOVE_AMOUNT = 5;
 
     private Rectangle paddleFace;
@@ -21,6 +19,7 @@ public class Paddle {
 
 
     public Paddle(Point ballPoint, int width, int height, Rectangle container) {
+
         this.ballPoint = ballPoint;
         moveAmount = 0;
         paddleFace = makeRectangle(width, height);
@@ -35,10 +34,12 @@ public class Paddle {
     }
 
     public boolean impact(Ball b){
+
         return paddleFace.contains(b.getPosition()) && paddleFace.contains(b.down) ;
     }
 
     public void move(){
+
         double x = ballPoint.getX() + moveAmount;
         if(x < min || x > max)
             return;

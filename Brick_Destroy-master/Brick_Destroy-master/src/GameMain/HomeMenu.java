@@ -1,8 +1,6 @@
 package GameMain;
 
 
-import GameMain.GameFrame;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -56,10 +54,8 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
 
         this.setFocusable(true);
         this.requestFocusInWindow();
-
         this.addMouseListener(this);
         this.addMouseMotionListener(this);
-
         this.owner = owner;
 
         menuFace = new Rectangle(new Point(0,0),area);
@@ -77,8 +73,6 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
         gameTitleFont = new Font("Algerian",Font.BOLD,40);
         creditsFont = new Font("Georgia",Font.PLAIN,20);
         buttonFont = new Font("Times New Roman",Font.PLAIN,startButton.height-6);
-
-
 
     }
 
@@ -110,8 +104,8 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
         //methods calls
         drawText(g2d);
         drawButton(g2d);
-        //end of methods calls
 
+        //end of methods calls
         g2d.translate(-x,-y);
         g2d.setFont(prevFont);
         g2d.setColor(prevColor);
@@ -122,9 +116,6 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
         Color prev = g2d.getColor();
 
         g2d.drawImage(background,0,0,null);         // use image as background instead of color
-        //g2d.setColor(BG_COLOR);
-        //g2d.fill(menuFace);
-
 
         Stroke tmp = g2d.getStroke();
 
@@ -267,9 +258,6 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
         }
 
     }
-
-
-
 
 
     @Override
