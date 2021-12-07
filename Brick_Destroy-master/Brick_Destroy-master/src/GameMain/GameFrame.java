@@ -10,25 +10,20 @@ import Component.HighScore;
 
 public class GameFrame extends JFrame implements WindowFocusListener {
 
-
-
     private static final String DEF_TITLE = "Galaxy Brick Destroyer";
-
     private GameBoard gameBoard;
     private HomeMenu homeMenu;
     private GameGuide gameGuide;
     private HighScore highScore;
-
     private boolean gaming;
     
 
     public GameFrame(){                                 // GameFrame constructor
-        super();
 
+        super();
         gaming = false;
 
         this.setLayout(new BorderLayout());
-
         gameBoard = new GameBoard(this);
         homeMenu = new HomeMenu(this,new Dimension(650,500));
         this.add(homeMenu,BorderLayout.CENTER);
@@ -70,6 +65,7 @@ public class GameFrame extends JFrame implements WindowFocusListener {
         this.setUndecorated(false);
 
     }
+
     public void enableHomeMenu(){                   // used when back button from guide is clicked
         this.remove(gameGuide);
         this.add(homeMenu,BorderLayout.CENTER);
@@ -78,6 +74,7 @@ public class GameFrame extends JFrame implements WindowFocusListener {
         this.setResizable(false);
         initialize();
     }
+
     public void enableHighScore(){
         highScore = new HighScore(this);
         this.add(highScore,BorderLayout.CENTER);
@@ -101,7 +98,6 @@ public class GameFrame extends JFrame implements WindowFocusListener {
         int y = (size.height - this.getHeight())/2 ;
         this.setLocation(x,y);
     }
-
 
 
     @Override

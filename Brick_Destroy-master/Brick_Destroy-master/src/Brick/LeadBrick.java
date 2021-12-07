@@ -14,16 +14,19 @@ public class LeadBrick extends Brick {
 
 
     public LeadBrick(Point point, Dimension size){
+
         super(NAME,point,size,DEF_BORDER,DEF_INNER, LEAD_STRENGTH);
     }
 
     @Override
     protected Shape makeBrickFace(Point pos, Dimension size) {
+
         return new Rectangle(pos,size);
     }
 
     @Override
     public Shape getBrick() {
+
         return super.brickFace;
     }
 

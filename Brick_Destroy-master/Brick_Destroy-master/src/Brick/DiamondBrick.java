@@ -1,7 +1,5 @@
 package Brick;
 
-
-
 import java.awt.*;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
@@ -19,20 +17,23 @@ public class DiamondBrick extends Brick {
     private Random rnd;
     private Shape brickFace;
 
-    public static Color makeTransparent(Color source, int alpha){               // create method to make diamond brick transparent
+
+    public static Color makeTransparent(Color source, int alpha){               // method to make diamond brick transparent
         return new Color(source.getRed(), source.getGreen(), source.getBlue(), alpha);
     }
 
 
     public DiamondBrick(Point point, Dimension size) {
         super(NAME, point, size, DEF_BORDER, DEF_INNER, DIAMOND_STRENGTH);
-        crack = new Crack(DEF_CRACK_DEPTH, DEF_STEPS);
-        rnd = new Random();
         brickFace = super.brickFace;
+        crack = new Crack(DEF_CRACK_DEPTH, DEF_STEPS,brickFace);
+        rnd = new Random();
+
     }
 
     @Override
     protected Shape makeBrickFace(Point pos, Dimension size) {
+
         return new Rectangle(pos, size);
     }
 

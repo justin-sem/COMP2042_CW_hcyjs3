@@ -6,6 +6,7 @@ import java.awt.geom.RectangularShape;
 
 
 abstract public class Ball {
+
     public Point2D up;
     public Point2D down;
     public Point2D left;
@@ -31,7 +32,6 @@ abstract public class Ball {
         left.setLocation(center.getX()-(radiusA /2),center.getY());
         right.setLocation(center.getX()+(radiusA /2),center.getY());                // ball movement (x,y)
 
-
         ballFace = makeBall(center,radiusA,radiusB);
         this.border = border;
         this.inner  = inner;
@@ -49,7 +49,6 @@ abstract public class Ball {
 
         tmp.setFrame((center.getX() -(w / 2)),(center.getY() - (h / 2)),w,h);
         setPoints(w,h);
-
 
         ballFace = tmp;
     }

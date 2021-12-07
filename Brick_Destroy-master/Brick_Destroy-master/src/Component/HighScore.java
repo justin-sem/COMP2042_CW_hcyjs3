@@ -1,7 +1,5 @@
 package Component;
 
-
-
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
@@ -11,7 +9,6 @@ import java.util.Scanner;
 
 
 public class HighScore extends JFrame {
-
 
     JFrame highScoreFrame = new JFrame();
     JLabel scoreLabel1 = new JLabel();

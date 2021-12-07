@@ -6,7 +6,6 @@ import Console.DebugConsole;
 import Component.Paddle;
 import Component.Wall;
 import Component.WriteToFile;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -23,20 +22,15 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
     private static final int TEXT_SIZE = 30;
     private static final Color MENU_COLOR = new Color(166, 141, 16);
 
-
     private static final int DEF_WIDTH = 600;
     private static final int DEF_HEIGHT = 450;
 
     private static final Color BG_COLOR = new Color(15, 20, 66);
 
     private Timer gameTimer;
-
     private Wall wall;
-
     private String message;
-
     private boolean showPauseMenu;
-
     private Font menuFont;
 
     private Rectangle continueButtonRect;
@@ -49,15 +43,12 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
 
     public GameBoard(JFrame owner){
-        super();
 
+        super();
         strLen = 0;
         showPauseMenu = false;
 
-
-
         menuFont = new Font("Times New Roman",Font.BOLD,TEXT_SIZE);
-
 
         this.initialize();
 
@@ -65,6 +56,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         wall = new Wall(new Rectangle(0,0,DEF_WIDTH,DEF_HEIGHT),30,3,6/2,new Point(300,430));
 
         debugConsole = new DebugConsole(owner,wall,this);
+
         //initialize the first level
         wall.nextLevel();
 
@@ -124,7 +116,6 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
     public void paint(Graphics g){
 
         Graphics2D g2d = (Graphics2D) g;
-
         clear(g2d);
 
         g2d.setColor(Color.GREEN);
@@ -152,46 +143,39 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
     }
 
     private void drawBrick(Brick brick,Graphics2D g2d){
-        Color tmp = g2d.getColor();
 
+        Color tmp = g2d.getColor();
         g2d.setColor(brick.getInnerColor());
         g2d.fill(brick.getBrick());
-
         g2d.setColor(brick.getBorderColor());
         g2d.draw(brick.getBrick());
-
-
         g2d.setColor(tmp);
     }
 
     private void drawBall(Ball ball, Graphics2D g2d){
+
         Color tmp = g2d.getColor();
-
         Shape s = ball.getBallFace();
-
         g2d.setColor(ball.getInnerColor());
         g2d.fill(s);
-
         g2d.setColor(ball.getBorderColor());
         g2d.draw(s);
-
         g2d.setColor(tmp);
     }
 
     private void drawPlayer(Paddle p, Graphics2D g2d){
-        Color tmp = g2d.getColor();
 
+        Color tmp = g2d.getColor();
         Shape s = p.getPaddleFace();
         g2d.setColor(Paddle.INNER_COLOR);
         g2d.fill(s);
-
         g2d.setColor(Paddle.BORDER_COLOR);
         g2d.draw(s);
-
         g2d.setColor(tmp);
     }
 
     private void drawMenu(Graphics2D g2d){
+
         obscureGameBoard(g2d);
         drawPauseMenu(g2d);
     }
@@ -200,22 +184,18 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
         Composite tmp = g2d.getComposite();
         Color tmpColor = g2d.getColor();
-
         AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER,0.55f);
         g2d.setComposite(ac);
-
         g2d.setColor(Color.BLACK);
         g2d.fillRect(0,0,DEF_WIDTH,DEF_HEIGHT);
-
         g2d.setComposite(tmp);
         g2d.setColor(tmpColor);
     }
 
     private void drawPauseMenu(Graphics2D g2d){
+
         Font tmpFont = g2d.getFont();
         Color tmpColor = g2d.getColor();
-
-
         g2d.setFont(menuFont);
         g2d.setColor(MENU_COLOR);
 
@@ -231,7 +211,6 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
         x = this.getWidth() / 8;
         y = this.getHeight() / 4;
-
 
         if(continueButtonRect == null){
             FontRenderContext frc = g2d.getFontRenderContext();
@@ -258,9 +237,6 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         }
 
         g2d.drawString(EXIT,x,y);
-
-
-
         g2d.setFont(tmpFont);
         g2d.setColor(tmpColor);
     }

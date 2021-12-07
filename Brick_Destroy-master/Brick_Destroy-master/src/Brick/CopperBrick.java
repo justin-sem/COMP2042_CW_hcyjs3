@@ -7,20 +7,19 @@ import java.awt.geom.Point2D;
 
 public class CopperBrick extends Brick {
 
-
     private static final String NAME = "Copper Brick";
     private static final Color DEF_INNER = new Color(176, 99, 5);
     private static final Color DEF_BORDER = new Color(128, 41, 5);
     private static final int COPPER_STRENGTH = 2;
-
     private Crack crack;
     private Shape brickFace;
 
 
     public CopperBrick(Point point, Dimension size){
         super(NAME,point,size,DEF_BORDER,DEF_INNER, COPPER_STRENGTH);
-        crack = new Crack(DEF_CRACK_DEPTH,DEF_STEPS);
         brickFace = super.brickFace;
+        crack = new Crack(DEF_CRACK_DEPTH,DEF_STEPS,brickFace);
+
     }
 
     @Override
