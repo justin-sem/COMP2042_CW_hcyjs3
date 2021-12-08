@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
 import Component.HighScore;
+import Component.Music;
 
 
 
@@ -31,6 +32,8 @@ public class GameFrame extends JFrame implements WindowFocusListener {
         ImageIcon galaxyLogo = new ImageIcon("galaxy.jpg");     // change icon
         this.setIconImage(galaxyLogo.getImage());
         ImageIcon universeBG = new ImageIcon("universe.jpg");     // change BG
+        Music musicObj = new Music();
+
 
     }
 
