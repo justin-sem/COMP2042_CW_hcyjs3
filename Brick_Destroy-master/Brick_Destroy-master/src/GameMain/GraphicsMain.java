@@ -19,6 +19,7 @@
 package GameMain;
 
 import java.awt.*;
+import Component.Music;
 
 
 
@@ -27,7 +28,13 @@ public class GraphicsMain {
     public static void main(String[] args){
 
         EventQueue.invokeLater(() -> new GameFrame().initialize());
+        String filepath = "Loyalty_Freak_Music_-_04_-_Cant_Stop_My_Feet_.wav";
+        Music musicObj =  new Music();
+        musicObj.playMusic(filepath);
+
 
     }
+
+
 
 }
