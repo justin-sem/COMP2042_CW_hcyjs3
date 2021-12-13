@@ -1,6 +1,6 @@
 # Galaxy Brick Destroyer
 
-####COMP2042_CW_hcyjs3
+**COMP2042_CW_hcyjs3**
 
 **************************************************************
 
@@ -25,8 +25,9 @@ Enjoy ;-)
 ****************************************************************
 This project is about maintaining and extending a re-implementation of a classic 
 retro game, Brick Breaker from: https://github.com/FilippoRanza/Brick_Destroy
-### Code Refactoring 
-- ####Refactoring & Basic Maintenance
+
+**Code Refactoring** 
+- **Refactoring & Basic Maintenance**
 
   The original project is refactored in order to make the code more 
   efficient and maintainable. Classes had been organised in a meaningful 
@@ -37,13 +38,15 @@ retro game, Brick Breaker from: https://github.com/FilippoRanza/Brick_Destroy
   related fields and variables were removed. Adding private visibility to all possible 
   variables and methods is completed to improve the code encapsulation.
 
-- ####JUnit Tests
+- **JUnit Tests**
+
   To provide annotation to identify the test methods, meaningful JUnit 5 tests had been 
   performed on the methods in this project as much as I could. All the tests were successful.
   JUnit test are store in "JUnit test" folder.
 
 
-- ####Build Automation Tool
+- **Build Automation Tool**
+
   To automate the creation of executable applications from source code, Maven had been used
   to compile the source code of this project to machine code. The jar file is available under
   "target" folder.
@@ -52,7 +55,8 @@ retro game, Brick Breaker from: https://github.com/FilippoRanza/Brick_Destroy
 
 
 
-###Additional Features
+**Additional Features**
+
   - Game Guide is added and player can access it at the home menu for better understanding of 
   this game.
 
@@ -81,12 +85,13 @@ retro game, Brick Breaker from: https://github.com/FilippoRanza/Brick_Destroy
   - Background music also added to the game, (.wav) can be found as well in the "Others" directory.
 
 
-### Javadocs
+**Javadocs**
+
   Javadocs for this project can be found under "Javadocs" folder. This source code documentation is aim 
   to increase our code readability, which make the code easier to understand. Javadocs documentation is 
   generated and comments were added to all the classes and methods in this project.
 
-###Thanks a lot :)
+**Thanks a lot :)**
   
 
                                                         
