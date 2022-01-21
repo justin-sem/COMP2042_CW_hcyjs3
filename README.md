@@ -1,7 +1,7 @@
 # Galaxy Brick Destroyer
 
 
-**************************************************************
+
 
 This is a simple arcade video game.
 Player's goal is to destroy bricks with a ball.
