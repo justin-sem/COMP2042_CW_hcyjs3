@@ -1,6 +1,7 @@
 # Galaxy Brick Destroyer
 
 
+![image](https://github.com/justin-sem/Galaxy-Brick-Destroyer/assets/93218385/2c90ac40-8185-4123-a4d1-88557ab1fa55)
 
 
 This is a simple arcade video game.
