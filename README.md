@@ -1,7 +1,6 @@
 # Galaxy Brick Destroyer
 
 <img src="https://github.com/justin-sem/Galaxy-Brick-Destroyer/assets/93218385/2bfaa2a6-660d-494c-ad49-bd66e60f368f" width="600" height="400">
-![image|50x50](https://github.com/justin-sem/Galaxy-Brick-Destroyer/assets/93218385/2bfaa2a6-660d-494c-ad49-bd66e60f368f )
 
 
 
